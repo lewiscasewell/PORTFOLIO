@@ -1,5 +1,13 @@
 import React from "react";
-import { Box, Flex, Heading, SimpleGrid, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Heading,
+  SimpleGrid,
+  Text,
+  Link,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import Header from "../components/Header";
 import { Card } from "../components/Card";
 import CardSkeleton from "../components/CardSkeleton";
@@ -16,6 +24,10 @@ const fetcher = async (url: string) => {
 
 const Home: React.FC = () => {
   const { data, error } = useSWR("/api/repositories", fetcher);
+
+  const headerColor = useColorModeValue("navy.light", "white");
+  const linkColor = useColorModeValue("#0547ff", "purple.custom");
+
   return (
     <Box h="100vh" display="flex" flexDir="column">
       <Header />
@@ -27,7 +39,34 @@ const Home: React.FC = () => {
         py={5}
         mt="95px"
       >
-        <Heading as="h1" fontSize={40}>{`I'm Lewis, I like to code.`}</Heading>
+        <Heading
+          as="h1"
+          fontSize={40}
+          color={headerColor}
+        >{`I'm Lewis, I like to build.`}</Heading>
+        <Text fontSize="lg" fontWeight="medium" mt={5}>
+          {`I'm a software developer based in Berkshire, UK specialising in building websites and
+          applications.`}
+        </Text>
+        <Text fontSize="lg" fontWeight="medium" mt={5}>
+          {`My current toolset includes React, Next, Node and other various
+          frameworks, libraries and technologies related to them.`}
+        </Text>
+        <Text fontSize="lg" fontWeight="medium" mt={5}>
+          {` Have a project you'd like to discuss?`} <br />
+          {`Let's chat`} {` `}
+          <Link
+            color={linkColor}
+            href="mailto:lewiscasewell@hotmail.co.uk?Subject=Hello"
+            target="_top"
+          >
+            lewiscasewell@hotmail.co.uk
+          </Link>
+        </Text>
+        <Heading as="h2" size="lg" color={headerColor} mt={5}>
+          {`Some Things I've Built`}
+        </Heading>
+
         {error ? (
           <Text mt={5}>An error occurred. Please refresh.</Text>
         ) : (

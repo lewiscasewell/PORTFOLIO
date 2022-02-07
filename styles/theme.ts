@@ -21,8 +21,8 @@ const theme = extendTheme({
       lighter: "#ccd6f6",
     },
     white: "#e6f1ff",
-    green: {
-      custom: "#64ffda",
+    purple: {
+      custom: "#42ffef",
     },
   },
 });

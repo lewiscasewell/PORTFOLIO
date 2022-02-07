@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 
-import { Box, Flex, IconButton, Text } from "@chakra-ui/react";
+import { Box, IconButton, Text, useColorModeValue } from "@chakra-ui/react";
 import { IoLogoGithub, IoMdOpen } from "react-icons/io";
 import { Project } from "../interfaces/index";
 
@@ -13,7 +13,7 @@ export const Card: React.FC<Props> = ({ project }) => {
     window.open(url, "_blank");
   }, []);
 
-  console.log(project);
+  const linkColor = useColorModeValue("#0547ff", "purple.custom");
 
   return (
     <>
@@ -29,7 +29,7 @@ export const Card: React.FC<Props> = ({ project }) => {
           <IconButton
             variant="link"
             _hover={{
-              color: "green.custom",
+              color: linkColor,
             }}
             _focus={{
               borderColor: "transparent",
@@ -41,7 +41,7 @@ export const Card: React.FC<Props> = ({ project }) => {
           <IconButton
             variant="link"
             _hover={{
-              color: "green.custom",
+              color: linkColor,
             }}
             _focus={{
               borderColor: "transparent",
