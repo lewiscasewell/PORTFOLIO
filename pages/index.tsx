@@ -45,8 +45,8 @@ const Home: React.FC = () => {
           color={headerColor}
         >{`I'm Lewis, I like to build.`}</Heading>
         <Text fontSize="lg" fontWeight="medium" mt={5}>
-          {`I'm a software developer based in Berkshire, UK specialising in building websites and
-          applications.`}
+          {`I'm a junior software developer based in Berkshire, UK. I combine my 2 year product background with web development to iteratively build websites and applications with fast user feedback loops. I also specialise in using a mobile first approach when creating applications in order to provide a consistent and quality user experience.
+          `}
         </Text>
         <Text fontSize="lg" fontWeight="medium" mt={5}>
           {`My current toolset includes React, Next, Node and other various
@@ -64,7 +64,7 @@ const Home: React.FC = () => {
           </Link>
         </Text>
         <Heading as="h2" size="lg" color={headerColor} mt={5}>
-          {`Some Things I've Built`}
+          {`What have I built?`}
         </Heading>
 
         {error ? (

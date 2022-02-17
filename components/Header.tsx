@@ -1,21 +1,38 @@
-import { HamburgerIcon, MoonIcon } from "@chakra-ui/icons";
+import {
+  ExternalLinkIcon,
+  HamburgerIcon,
+  InfoOutlineIcon,
+  MoonIcon,
+} from "@chakra-ui/icons";
 import {
   Box,
   Button,
   Container,
   IconButton,
+  Link,
   Menu,
   MenuButton,
-  MenuIcon,
+  MenuItem,
+  MenuList,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
   useColorMode,
   useColorModeValue,
+  useDisclosure,
 } from "@chakra-ui/react";
-import { FilterIcon, LightBulbIcon } from "../styles/icons";
+import { useCallback } from "react";
+import { LightBulbIcon } from "../styles/icons";
 
 export default function Header() {
   const { toggleColorMode } = useColorMode();
   const bgColor = useColorModeValue("white", "gray.800");
   const themeIcon = useColorModeValue(<MoonIcon />, <LightBulbIcon />);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -47,6 +64,34 @@ export default function Header() {
               as={IconButton}
               variant="ghost"
             />
+            <MenuList>
+              <MenuItem
+                icon={<ExternalLinkIcon />}
+                onClick={() => window.open("https://google.com")}
+              >
+                Open CV
+              </MenuItem>
+              <MenuItem icon={<InfoOutlineIcon />} onClick={onOpen}>
+                More about me
+              </MenuItem>
+            </MenuList>
+            <Modal isOpen={isOpen} onClose={onClose}>
+              <ModalOverlay />
+              <ModalContent>
+                <ModalHeader>More about me</ModalHeader>
+                <ModalCloseButton />
+                <ModalBody>Hey there you seem great</ModalBody>
+
+                <ModalFooter>
+                  <Button colorScheme="blue" mr={3} onClick={() => {}}>
+                    Contact
+                  </Button>
+                  <Button variant="ghost" onClick={onClose}>
+                    Close
+                  </Button>
+                </ModalFooter>
+              </ModalContent>
+            </Modal>
           </Menu>
         </Box>
       </Container>
