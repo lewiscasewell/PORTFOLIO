@@ -1,22 +1,27 @@
 import axios from "axios";
 import { Project } from "../interfaces/index";
 
-const GET_REPOSITORIES = ` query {
+const GET_REPOSITORIES = `query {
   user(login: "lewiscasewell") {
-    repositories(first: 6, isFork: false, orderBy: { field: STARGAZERS, direction: DESC }) {
+    repositories(first: 6, isFork: false, orderBy: { field: CREATED_AT, direction: DESC }) {
       nodes {
         name
         description
         url
         homepageUrl
-        forkCount
-        stargazers {
-          totalCount
+        repositoryTopics(first: 3) {
+          edges {
+            node {
+              topic {
+                name
+              }
+            }
+          }
         }
         primaryLanguage {
           name
+          color
         }
-        diskUsage
       }
     }
   }

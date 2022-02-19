@@ -7,7 +7,10 @@ import {
   Text,
   Link,
   useColorModeValue,
+  Center,
+  Button,
 } from "@chakra-ui/react";
+
 import Header from "../components/Header";
 import { Card } from "../components/Card";
 import CardSkeleton from "../components/CardSkeleton";
@@ -26,7 +29,7 @@ const Home: React.FC = () => {
   const { data, error } = useSWR("/api/repositories", fetcher);
 
   const headerColor = useColorModeValue("navy.light", "white");
-  const linkColor = useColorModeValue("#0547ff", "purple.custom");
+  const linkColor = useColorModeValue("theme.royalBlue", "theme.mint");
 
   return (
     <Box h="100vh" display="flex" flexDir="column">
@@ -45,12 +48,17 @@ const Home: React.FC = () => {
           color={headerColor}
         >{`I'm Lewis, I like to build.`}</Heading>
         <Text fontSize="lg" fontWeight="medium" mt={5}>
-          {`I'm a junior software developer based in Berkshire, UK. I combine my 2 year product background with web development to iteratively build websites and applications with fast user feedback loops. I also specialise in using a mobile first approach when creating applications in order to provide a consistent and quality user experience.
+          {`I'm a junior software developer based in Berkshire, 
+          UK. I combine my 2 year product background with web development
+           to iteratively build websites and applications with fast user 
+           feedback loops. I also specialise in using a mobile first approach
+            when creating applications in order to provide a consistent and
+             quality user experience.
           `}
         </Text>
         <Text fontSize="lg" fontWeight="medium" mt={5}>
-          {`My current toolset includes React, Next, Node and other various
-          frameworks, libraries and technologies related to them.`}
+          {`My current tech stack includes React, Next, Node and several other
+          frameworks and libraries similar to them.`}
         </Text>
         <Text fontSize="lg" fontWeight="medium" mt={5}>
           {` Have a project you'd like to discuss?`} <br />
@@ -76,6 +84,22 @@ const Home: React.FC = () => {
               : [...Array(6).keys()].map((item) => <CardSkeleton key={item} />)}
           </SimpleGrid>
         )}
+
+        <Center mt={5}>
+          <Button
+            size="lg"
+            borderColor={linkColor}
+            color={linkColor}
+            variant="outline"
+            _hover={{}}
+            _focus={{}}
+            onClick={() =>
+              window.open("https://github.com/lewiscasewell", "_blank")
+            }
+          >
+            Visit my GitHub
+          </Button>
+        </Center>
       </Flex>
     </Box>
   );

@@ -3,12 +3,17 @@ export interface Project {
   description: string;
   url: string;
   homepageUrl: string;
-  forkCount: number;
-  stargazers: {
-    totalCount: number;
+  repositoryTopics: {
+    edges: Array<{
+      node: {
+        topic: {
+          name: string;
+        };
+      };
+    }>;
   };
   primaryLanguage: {
     name: string;
+    color: string;
   };
-  diskUsage: number;
 }

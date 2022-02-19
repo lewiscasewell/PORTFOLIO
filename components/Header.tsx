@@ -3,13 +3,13 @@ import {
   HamburgerIcon,
   InfoOutlineIcon,
   MoonIcon,
+  SunIcon,
 } from "@chakra-ui/icons";
 import {
   Box,
   Button,
   Container,
   IconButton,
-  Link,
   Menu,
   MenuButton,
   MenuItem,
@@ -21,18 +21,19 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  Text,
   useColorMode,
   useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
-import { useCallback } from "react";
-import { LightBulbIcon } from "../styles/icons";
 
 export default function Header() {
   const { toggleColorMode } = useColorMode();
   const bgColor = useColorModeValue("white", "gray.800");
-  const themeIcon = useColorModeValue(<MoonIcon />, <LightBulbIcon />);
+  const themeIcon = useColorModeValue(<MoonIcon />, <SunIcon />);
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const linkColor = useColorModeValue("theme.royalBlue", "theme.mint");
+  const textColor = useColorModeValue("white", "navy.lighter");
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -47,7 +48,13 @@ export default function Header() {
         justifyContent="space-between"
         alignItems="center"
       >
-        <Button variant="ghost" fontSize="xl" onClick={scrollToTop}>
+        <Button
+          variant="ghost"
+          fontSize="xl"
+          onClick={scrollToTop}
+          _hover={{}}
+          _focus={{}}
+        >
           Lewis Casewell.
         </Button>
         <Box>
@@ -57,17 +64,22 @@ export default function Header() {
             variant="ghost"
             aria-label="Toggle theme"
             icon={themeIcon}
+            _hover={{}}
+            _focus={{}}
           />
           <Menu>
             <MenuButton
               icon={<HamburgerIcon />}
               as={IconButton}
               variant="ghost"
+              aria-label="Menu"
+              _hover={{}}
+              _focus={{}}
             />
             <MenuList>
               <MenuItem
                 icon={<ExternalLinkIcon />}
-                onClick={() => window.open("https://google.com")}
+                onClick={() => window.open("CV.pdf", "_blank")}
               >
                 Open CV
               </MenuItem>
@@ -76,14 +88,45 @@ export default function Header() {
               </MenuItem>
             </MenuList>
             <Modal isOpen={isOpen} onClose={onClose}>
-              <ModalOverlay />
+              <ModalOverlay bg="blackAlpha.300" backdropFilter="blur(10px)" />
               <ModalContent>
                 <ModalHeader>More about me</ModalHeader>
                 <ModalCloseButton />
-                <ModalBody>Hey there you seem great</ModalBody>
+                <ModalBody>
+                  <p>{`I have two primary passions that are very important to me
+                  which are fitness and technology.\n
+
+                  I have been training with weights, doing calisthenics and
+                  other forms of fitness training for more than 7 years now.
+                  I love pushing myself to my body's limits and treating it 
+                  scientifically.\n
+
+                  I love technology like anyone else... because it makes it
+                  my life easier. It can be used to make any task in any industry
+                  easier. For that reason, it seems extremely ordinary to enjoy 
+                  technology. However, I cannot denie that i enjoy spending my time
+                  reflecting on how technology can make my day-to-day life easier.\n
+
+                  Recently web 3 technology has caught my attention from it's ability
+                  to create ownership on the internet. Seeing how blockchain technology
+                  can help with identity and credential verification to simplify user
+                  flows in application is a future I would like to personally see
+                  come to fruition.
+                  `}</p>
+                </ModalBody>
 
                 <ModalFooter>
-                  <Button colorScheme="blue" mr={3} onClick={() => {}}>
+                  <Button
+                    bg={linkColor}
+                    color={textColor}
+                    mr={3}
+                    _hover={{}}
+                    onClick={() =>
+                      window.open(
+                        "mailto:lewiscasewell@hotmail.co.uk?Subject=Hello"
+                      )
+                    }
+                  >
                     Contact
                   </Button>
                   <Button variant="ghost" onClick={onClose}>

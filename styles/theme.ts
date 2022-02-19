@@ -4,7 +4,6 @@ const theme = extendTheme({
   styles: {
     global: {
       "html, body": {
-        // backgroundColor: "navy.base",
         color: "slate.base",
       },
     },
@@ -21,8 +20,9 @@ const theme = extendTheme({
       lighter: "#ccd6f6",
     },
     white: "#e6f1ff",
-    purple: {
-      custom: "#42ffef",
+    theme: {
+      mint: "#42ffef",
+      royalBlue: "#0547ff",
     },
   },
 });
