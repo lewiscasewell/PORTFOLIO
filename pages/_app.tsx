@@ -1,6 +1,6 @@
 import React from "react";
 import { ChakraProvider } from "@chakra-ui/react";
-import Head from "../components/Head";
+import { Head } from "../components/Head";
 import { AppProps } from "next/dist/shared/lib/router/router";
 import theme from "../styles/theme";
 

@@ -27,7 +27,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 
-export default function Header() {
+export const Header: React.FC = () => {
   const { toggleColorMode } = useColorMode();
   const bgColor = useColorModeValue("white", "gray.800");
   const themeIcon = useColorModeValue(<MoonIcon />, <SunIcon />);
@@ -93,26 +93,25 @@ export default function Header() {
                 <ModalHeader>More about me</ModalHeader>
                 <ModalCloseButton />
                 <ModalBody>
-                  <p>{`I have two primary passions that are very important to me
-                  which are fitness and technology.\n
-
-                  I have been training with weights, doing calisthenics and
-                  other forms of fitness training for more than 7 years now.
-                  I love pushing myself to my body's limits and treating it 
-                  scientifically.\n
-
-                  I love technology like anyone else... because it makes it
-                  my life easier. It can be used to make any task in any industry
-                  easier. For that reason, it seems extremely ordinary to enjoy 
-                  technology. However, I cannot denie that i enjoy spending my time
-                  reflecting on how technology can make my day-to-day life easier.\n
-
-                  Recently web 3 technology has caught my attention from it's ability
-                  to create ownership on the internet. Seeing how blockchain technology
-                  can help with identity and credential verification to simplify user
-                  flows in application is a future I would like to personally see
+                  <Text>{`My two passions are fitness and technology.`}</Text>
+                  <Text>
+                    {`I have been weight-training and doing calisthenics for more than 7 years now.
+                  I love pushing myself to my body's limits and seeing progress in different avenues. 
+                  My goal is to be a well-rounded athlete, including mobility, flexibility and strength.`}
+                  </Text>
+                  <Text>
+                    {`I love technology because it can make any task more efficient.
+                    I fell in love with coding because you don't need large sums of capital to start building real, usable products and the marginal cost of production is zero (i.e. one more download doesn't cost more to produce).
+                  I like to see how new technological trends can help solve new problems that arise.`}
+                  </Text>
+                  <Text>
+                    {`Recently web 3 technology has caught my attention from it's ability
+                  to allow digital ownership on the internet. Looking past the scams, pumps and greed; this new era of the web is exciting and is something I think every web developer should at least keep their eye on.
+                  An example being how blockchain technology can help with identity and credential verification to simplify user
+                  flows in all applications is a future I would like to personally see
                   come to fruition.
-                  `}</p>
+                  `}
+                  </Text>
                 </ModalBody>
 
                 <ModalFooter>
@@ -140,4 +139,4 @@ export default function Header() {
       </Container>
     </Box>
   );
-}
+};

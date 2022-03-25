@@ -1,4 +1,4 @@
-import { Stack, Skeleton } from "@chakra-ui/react";
+import { Stack, Skeleton, HStack } from "@chakra-ui/react";
 import React from "react";
 
 const CardSkeleton: React.FC = () => {
@@ -25,6 +25,26 @@ const CardSkeleton: React.FC = () => {
         startColor="slate.light"
         endColor="slate.lighter"
       />
+      <HStack>
+        <Skeleton
+          startColor="slate.light"
+          endColor="slate.lighter"
+          height="13px"
+          width="40px"
+        />
+        <Skeleton
+          startColor="slate.light"
+          endColor="slate.lighter"
+          height="13px"
+          width="40px"
+        />
+        <Skeleton
+          startColor="slate.light"
+          endColor="slate.lighter"
+          height="13px"
+          width="40px"
+        />
+      </HStack>
     </Stack>
   );
 };

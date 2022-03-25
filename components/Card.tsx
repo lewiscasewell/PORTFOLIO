@@ -27,7 +27,7 @@ export const Card: React.FC<Props> = ({ project }) => {
         borderRadius="md"
         px={5}
         pt={5}
-        pb="60px"
+        pb={8}
         position="relative"
       >
         <Box justifyContent="space-between" display="flex">
@@ -71,7 +71,14 @@ export const Card: React.FC<Props> = ({ project }) => {
         </Text>
         <Box>
           {project.repositoryTopics.edges.map((topic, idx) => (
-            <Tag key={idx} mr={1} mt={3} bg={linkColor} color={tagTextColor}>
+            <Tag
+              key={idx}
+              mr={2}
+              mt={3}
+              bg={linkColor}
+              color={tagTextColor}
+              borderRadius="full"
+            >
               {topic.node.topic.name}
             </Tag>
           ))}

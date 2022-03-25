@@ -1,7 +1,13 @@
 import NextHead from "next/head";
 import PropTypes from "prop-types";
+import React from "react";
 
-export default function Head({ title, description }) {
+interface Props {
+  title: string;
+  description: string;
+}
+
+export const Head: React.FC<Props> = ({ title, description }) => {
   return (
     <NextHead>
       <title>{title}</title>
@@ -14,14 +20,14 @@ export default function Head({ title, description }) {
       <meta property="og:description" content={description} />
       {/* <meta
         property="og:image"
-        content="https://og-image.vercel.app/OnlySetups.png"
+        content=""
       /> */}
       <link rel="manifest" href="/manifest.json" />
       <link rel="icon" href="/favicon.ico" />
       <meta name="theme-color" content="#000000" />
     </NextHead>
   );
-}
+};
 
 Head.propTypes = {
   title: PropTypes.string.isRequired,

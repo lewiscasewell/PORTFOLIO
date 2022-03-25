@@ -11,7 +11,7 @@ import {
   Button,
 } from "@chakra-ui/react";
 
-import Header from "../components/Header";
+import { Header } from "../components/Header";
 import { Card } from "../components/Card";
 import CardSkeleton from "../components/CardSkeleton";
 
