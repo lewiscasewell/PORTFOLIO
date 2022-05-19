@@ -3,7 +3,7 @@ import { Project } from "../interfaces/index";
 
 const GET_REPOSITORIES = `query {
   user(login: "lewiscasewell") {
-    repositories(first: 6, isFork: false, orderBy: { field: CREATED_AT, direction: DESC }) {
+    repositories(first: 4, isFork: false, orderBy: { field: STARGAZERS, direction: DESC }) {
       nodes {
         name
         description

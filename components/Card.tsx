@@ -20,10 +20,12 @@ export const Card: React.FC<Props> = ({ project }) => {
   }, []);
   const linkColor = useColorModeValue("theme.royalBlue", "theme.mint");
   const tagTextColor = useColorModeValue("white", "navy.lighter");
+  const bgColor = useColorModeValue("slate.lighter", "navy.light");
+  const textColor = useColorModeValue("navy.light", "slate.lighter");
   return (
     <>
       <Box
-        bg="navy.light"
+        bg={bgColor}
         borderRadius="md"
         px={5}
         pt={5}
@@ -63,10 +65,10 @@ export const Card: React.FC<Props> = ({ project }) => {
           </Box>
           <Text>{project.primaryLanguage.name}</Text>
         </Box>
-        <Text color="slate.lighter" fontSize="xl" fontWeight="bold" mt={4}>
+        <Text color={textColor} fontSize="xl" fontWeight="bold" mt={4}>
           {project.name}
         </Text>
-        <Text fontWeight="medium" mt={3} noOfLines={3}>
+        <Text color={textColor} fontWeight="light" mt={3} noOfLines={3}>
           {project.description}
         </Text>
         <Box>

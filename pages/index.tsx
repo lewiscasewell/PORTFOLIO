@@ -48,7 +48,7 @@ const Home: React.FC = () => {
           color={headerColor}
         >{`I'm Lewis, I like to build.`}</Heading>
         <Text fontSize="lg" fontWeight="medium" mt={5}>
-          {`I'm a junior software developer based in Berkshire, 
+          {`I'm a web developer based in Berkshire, 
           UK. I combine my 2 year product background with web development
            to iteratively build websites and applications with fast user 
            feedback loops. I also specialise in using a mobile first approach
@@ -61,7 +61,7 @@ const Home: React.FC = () => {
           frameworks and libraries similar to them.`}
         </Text>
         <Text fontSize="lg" fontWeight="medium" mt={5}>
-          {` Have a project you'd like to discuss?`} <br />
+          {` Have a project idea?`} <br />
           {`Let's chat`} {` `}
           <Link
             color={linkColor}
@@ -72,7 +72,7 @@ const Home: React.FC = () => {
           </Link>
         </Text>
         <Heading as="h2" size="lg" color={headerColor} mt={5}>
-          {`What have I built?`}
+          {`Some stuff I have built.`}
         </Heading>
 
         {error ? (
