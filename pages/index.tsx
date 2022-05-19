@@ -81,7 +81,7 @@ const Home: React.FC = () => {
           <SimpleGrid columns={[1, null, 2]} spacing={5} mt={5}>
             {data
               ? data.map((item, idx) => <Card project={item} key={idx} />)
-              : [...Array(6).keys()].map((item) => <CardSkeleton key={item} />)}
+              : [...Array(4).keys()].map((item) => <CardSkeleton key={item} />)}
           </SimpleGrid>
         )}
 
