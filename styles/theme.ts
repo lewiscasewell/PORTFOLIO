@@ -1,13 +1,11 @@
 import { extendTheme } from "@chakra-ui/react";
 
 const theme = extendTheme({
-  styles: {
-    global: {
-      "html, body": {
-        color: "slate.base",
-      },
-    },
+  config: {
+    initialColorMode: "dark",
+    useSystemColorMode: false,
   },
+  styles: {},
   colors: {
     navy: {
       base: "#0a192f",

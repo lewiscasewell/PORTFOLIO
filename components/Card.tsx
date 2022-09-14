@@ -25,7 +25,7 @@ export const Card: React.FC<Props> = ({ project }) => {
   return (
     <>
       <Box
-        bg={bgColor}
+        bg="gray.900"
         borderRadius="md"
         px={5}
         pt={5}
@@ -36,8 +36,9 @@ export const Card: React.FC<Props> = ({ project }) => {
           <Box>
             <IconButton
               variant="link"
+              color="gray.400"
               _hover={{
-                color: linkColor,
+                color: "white",
               }}
               _focus={{
                 borderColor: "",
@@ -48,8 +49,9 @@ export const Card: React.FC<Props> = ({ project }) => {
             />
             <IconButton
               variant="link"
+              color="gray.400"
               _hover={{
-                color: linkColor,
+                color: "white",
               }}
               _focus={{
                 borderColor: "transparent",
@@ -65,7 +67,13 @@ export const Card: React.FC<Props> = ({ project }) => {
           </Box>
           <Text>{project.primaryLanguage.name}</Text>
         </Box>
-        <Text color={textColor} fontSize="xl" fontWeight="bold" mt={4}>
+        <Text
+          bgGradient="linear(to-br, #63FFD5, #D3FE84)"
+          bgClip="text"
+          fontSize="xl"
+          fontWeight="bold"
+          mt={4}
+        >
           {project.name}
         </Text>
         <Text color={textColor} fontWeight="light" mt={3} noOfLines={3}>
@@ -76,8 +84,8 @@ export const Card: React.FC<Props> = ({ project }) => {
             <Tag
               key={idx}
               mr={2}
-              mt={3}
-              bg={linkColor}
+              mt={4}
+              bg="gray.300"
               color={tagTextColor}
               borderRadius="full"
             >

@@ -1,95 +1,195 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   Box,
   Flex,
   Heading,
-  SimpleGrid,
   Text,
   Link,
-  useColorModeValue,
   Center,
   Button,
+  IconButton,
+  Tooltip,
 } from "@chakra-ui/react";
+import {
+  ArrowDownIcon,
+  EmailIcon,
+  ExternalLinkIcon,
+  QuestionOutlineIcon,
+} from "@chakra-ui/icons";
+import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io";
+import Projects from "../components/Projects";
 
-import { Header } from "../components/Header";
-import { Card } from "../components/Card";
-import CardSkeleton from "../components/CardSkeleton";
-
-import axios from "axios";
-import useSWR from "swr";
-
-import { Project } from "../interfaces/index";
-
-const fetcher = async (url: string) => {
-  const { data } = await axios.get<Project[]>(url);
-  return data;
-};
+const CODING_PHILOSOPHY_LIST = [
+  "building once, deploying everywhere - so features can be built faster",
+  "taking a mobile first approach when building applications",
+  "using fast user feedback loops to build products users love",
+  "using the most simple methods and technologies for the job",
+  "caring about the product they are developing on",
+];
 
 const Home: React.FC = () => {
-  const { data, error } = useSWR("/api/repositories", fetcher);
+  const [codingPhilosophyIndex, setCodingPhilosophyIndex] = useState(0);
+  const [philosophyOpacity, setPhilosophyOpacity] = useState(0);
+  const projectsRef = useRef(null);
+  const headingRef = useRef(null);
 
-  const headerColor = useColorModeValue("navy.light", "white");
-  const linkColor = useColorModeValue("theme.royalBlue", "theme.mint");
+  useEffect(() => {
+    setPhilosophyOpacity(1);
+    if (codingPhilosophyIndex <= CODING_PHILOSOPHY_LIST.length - 1) {
+      const timer = setTimeout(() => {
+        setCodingPhilosophyIndex(codingPhilosophyIndex + 1);
+      }, 5000);
+
+      return () => clearTimeout(timer);
+    }
+    if (codingPhilosophyIndex === CODING_PHILOSOPHY_LIST.length)
+      setCodingPhilosophyIndex(0);
+  }, [codingPhilosophyIndex]);
 
   return (
-    <Box h="100vh" display="flex" flexDir="column">
-      <Header />
+    <Box display="flex" flexDir="column">
       <Flex
+        h="100vh"
+        p={4}
         margin="0 auto"
         direction="column"
         maxW={992}
-        px={[5, 8, 8]}
-        py={5}
-        mt="95px"
+        gap={5}
       >
-        <Heading
-          as="h1"
-          fontSize={40}
-          color={headerColor}
-        >{`I'm Lewis, I like to build.`}</Heading>
-        <Text fontSize="lg" fontWeight="medium" mt={5}>
-          {`I'm a web developer based in Berkshire, 
-          UK. I combine my 2 year product background with web development
-           to iteratively build websites and applications with fast user 
-           feedback loops. I also specialise in using a mobile first approach
-            when creating applications in order to provide a consistent and
-             quality user experience.
-          `}
-        </Text>
-        <Text fontSize="lg" fontWeight="medium" mt={5}>
-          {`My current tech stack includes React, Next, Node and several other
-          frameworks and libraries similar to them.`}
-        </Text>
-        <Text fontSize="lg" fontWeight="medium" mt={5}>
-          {` Have a project idea?`} <br />
-          {`Let's chat`} {` `}
-          <Link
-            color={linkColor}
-            href="mailto:lewiscasewell@hotmail.co.uk?Subject=Hello"
-            target="_top"
+        <Box mt={["20vh"]} w="fit-content" ref={headingRef} minW="340px">
+          <Heading
+            bgGradient="linear(to-br, #42FFEF, #AEFF9D)"
+            bgClip="text"
+            as="h1"
+            fontSize={[46, 60, 88]}
           >
-            lewiscasewell@hotmail.co.uk
+            {`Lewis Casewell`}
+          </Heading>
+        </Box>
+        <Flex gap={2}>
+          <Tooltip label="Email">
+            <IconButton
+              aria-label="mail"
+              rounded="full"
+              icon={<EmailIcon />}
+              onClick={() => {
+                window.location.assign(
+                  "mailto:lewiscasewell@hotmail.co.uk?Subject=Hello"
+                );
+              }}
+            />
+          </Tooltip>
+          <Link
+            href="https://www.linkedin.com/in/lewis-casewell-bb1769182/"
+            target="_blank"
+          >
+            <Tooltip label="LinkedIn">
+              <IconButton
+                aria-label="linkedIn"
+                rounded="full"
+                icon={<IoLogoLinkedin />}
+              />
+            </Tooltip>
           </Link>
-        </Text>
-        <Heading as="h2" size="lg" color={headerColor} mt={5}>
-          {`Some stuff I have built.`}
-        </Heading>
+          <Link href="https://github.com/lewiscasewell" target="_blank">
+            <Tooltip label="GitHub">
+              <IconButton
+                aria-label="github"
+                rounded="full"
+                icon={<IoLogoGithub />}
+              />
+            </Tooltip>
+          </Link>
+          <Tooltip label="Open CV">
+            <IconButton
+              aria-label="CV"
+              rounded="full"
+              icon={<ExternalLinkIcon />}
+              onClick={() => window.open("CV.pdf", "_blank")}
+            />
+          </Tooltip>
+          <Link href="https://polls.lewiscasewell.com" target="_blank">
+            <Tooltip label="Start a poll">
+              <IconButton
+                aria-label="poll"
+                rounded="full"
+                icon={<QuestionOutlineIcon />}
+              />
+            </Tooltip>
+          </Link>
+        </Flex>
+        <Box maxW={headingRef.current?.offsetWidth} h={200}>
+          <Text fontSize={[16, 18, 20]} color="gray.400">
+            I am a front-end developer who believes in...
+          </Text>
+          <Text
+            fontSize={[22, 26, 28]}
+            fontStyle="italic"
+            color="gray.300"
+            opacity={philosophyOpacity}
+            transition="opacity 0.2s ease-in"
+          >
+            {CODING_PHILOSOPHY_LIST[codingPhilosophyIndex]}
+          </Text>
+        </Box>
+        <Center
+          flexDirection="column"
+          gap={2}
+          onClick={() =>
+            window.scrollTo({
+              top: projectsRef.current.offsetTop,
+              behavior: "smooth",
+            })
+          }
+        >
+          <Text
+            fontSize={20}
+            as="h2"
+            fontWeight="bold"
+            bgGradient="linear(to-br, #63FFD5, #D3FE84)"
+            bgClip="text"
+          >
+            Go to projects
+          </Text>
+          <IconButton
+            rounded="full"
+            variant="ghost"
+            aria-label="go-to-projects"
+            w="fit-content"
+            icon={<ArrowDownIcon />}
+            onClick={() =>
+              window.scrollTo({
+                top: projectsRef.current.offsetTop,
+                behavior: "smooth",
+              })
+            }
+          />
+        </Center>
+      </Flex>
+      <Flex
+        mb="25vh"
+        p={4}
+        marginX="auto"
+        direction="column"
+        maxW={992}
+        gap={5}
+        ref={projectsRef}
+      >
+        <Box textAlign="center" mt="35px">
+          <Heading as="h1" fontSize={40} color="white">
+            {`I like to build`}
+          </Heading>
+          <Text>Check out some of my projects...</Text>
+        </Box>
+        <Box mt={5}>
+          <Projects />
+        </Box>
 
-        {error ? (
-          <Text mt={5}>An error occurred. Please refresh.</Text>
-        ) : (
-          <SimpleGrid columns={[1, null, 2]} spacing={5} mt={5}>
-            {data
-              ? data.map((item, idx) => <Card project={item} key={idx} />)
-              : [...Array(4).keys()].map((item) => <CardSkeleton key={item} />)}
-          </SimpleGrid>
-        )}
-
-        <Center mt={5}>
+        <Center mt={5} mb={5}>
           <Button
             size="lg"
-            borderColor={linkColor}
-            color={linkColor}
+            borderColor="#89FFB9"
+            color="#89FFB9"
             variant="outline"
             _hover={{}}
             _focus={{}}
