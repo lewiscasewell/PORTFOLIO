@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import {
   ArrowDownIcon,
+  ArrowUpIcon,
   EmailIcon,
   ExternalLinkIcon,
   QuestionOutlineIcon,
@@ -66,7 +67,7 @@ const Home: React.FC = () => {
             {`Lewis Casewell`}
           </Heading>
         </Box>
-        <Flex gap={2}>
+        <Flex gap={2} alignItems="center">
           <Tooltip label="Email">
             <IconButton
               aria-label="mail"
@@ -177,7 +178,7 @@ const Home: React.FC = () => {
       >
         <Box textAlign="center" mt="35px">
           <Heading as="h1" fontSize={40} color="white">
-            {`I like to build`}
+            {`I like to build 👨‍💻`}
           </Heading>
           <Text>Check out some of my projects...</Text>
         </Box>
@@ -199,6 +200,40 @@ const Home: React.FC = () => {
           >
             Visit my GitHub
           </Button>
+        </Center>
+        <Center
+          marginTop={10}
+          flexDirection="column"
+          gap={2}
+          onClick={() =>
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            })
+          }
+        >
+          <IconButton
+            rounded="full"
+            variant="ghost"
+            aria-label="go-to-projects"
+            w="fit-content"
+            icon={<ArrowUpIcon />}
+            onClick={() =>
+              window.scrollTo({
+                top: projectsRef.current.offsetTop,
+                behavior: "smooth",
+              })
+            }
+          />
+          <Text
+            fontSize={20}
+            as="h2"
+            fontWeight="bold"
+            bgGradient="linear(to-br, #63FFD5, #D3FE84)"
+            bgClip="text"
+          >
+            Back to top
+          </Text>
         </Center>
       </Flex>
     </Box>

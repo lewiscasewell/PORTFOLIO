@@ -18,9 +18,8 @@ export const Card: React.FC<Props> = ({ project }) => {
   const openLinkInNewTab = useCallback((url: string) => {
     window.open(url, "_blank");
   }, []);
-  const linkColor = useColorModeValue("theme.royalBlue", "theme.mint");
+
   const tagTextColor = useColorModeValue("white", "navy.lighter");
-  const bgColor = useColorModeValue("slate.lighter", "navy.light");
   const textColor = useColorModeValue("navy.light", "slate.lighter");
   return (
     <>
@@ -31,6 +30,10 @@ export const Card: React.FC<Props> = ({ project }) => {
         pt={5}
         pb={8}
         position="relative"
+        transition="0.2s ease-in"
+        _hover={{
+          shadow: "lg",
+        }}
       >
         <Box justifyContent="space-between" display="flex">
           <Box>
