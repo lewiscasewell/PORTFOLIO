@@ -31,9 +31,7 @@ export const Card: React.FC<Props> = ({ project }) => {
         pb={8}
         position="relative"
         transition="0.2s ease-in"
-        _hover={{
-          shadow: "lg",
-        }}
+        shadow="lg"
       >
         <Box justifyContent="space-between" display="flex">
           <Box>

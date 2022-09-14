@@ -178,7 +178,8 @@ const Home: React.FC = () => {
       >
         <Box textAlign="center" mt="35px">
           <Heading as="h1" fontSize={40} color="white">
-            {`I like to build 👨‍💻`}
+            {`I like to build `}
+            <Tooltip label="This is me">👨‍💻</Tooltip>
           </Heading>
           <Text>Check out some of my projects...</Text>
         </Box>
