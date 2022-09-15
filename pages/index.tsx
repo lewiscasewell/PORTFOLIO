@@ -18,7 +18,7 @@ import {
   ExternalLinkIcon,
   QuestionOutlineIcon,
 } from "@chakra-ui/icons";
-import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io";
+import { IoLogoGithub, IoLogoLinkedin, IoMdBook } from "react-icons/io";
 import Projects from "../components/Projects";
 
 const CODING_PHILOSOPHY_LIST = [
@@ -130,6 +130,15 @@ const Home: React.FC = () => {
               onClick={() => window.open("CV.pdf", "_blank")}
             />
           </Tooltip>
+          <Link href="https://books.lewiscasewell.com" target="_blank">
+            <Tooltip label="Book library">
+              <IconButton
+                aria-label="books"
+                rounded="full"
+                icon={<IoMdBook />}
+              />
+            </Tooltip>
+          </Link>
           <Link href="https://polls.lewiscasewell.com" target="_blank">
             <Tooltip label="Start a poll">
               <IconButton
