@@ -9,6 +9,7 @@ import {
   Button,
   IconButton,
   Tooltip,
+  Image,
 } from "@chakra-ui/react";
 import {
   ArrowDownIcon,
@@ -33,6 +34,7 @@ const Home: React.FC = () => {
   const [philosophyOpacity, setPhilosophyOpacity] = useState(0);
   const projectsRef = useRef(null);
   const headingRef = useRef(null);
+  const imageRef = useRef(null);
 
   useEffect(() => {
     setPhilosophyOpacity(1);
@@ -45,10 +47,31 @@ const Home: React.FC = () => {
     }
     if (codingPhilosophyIndex === CODING_PHILOSOPHY_LIST.length)
       setCodingPhilosophyIndex(0);
-  }, [codingPhilosophyIndex]);
+  }, [codingPhilosophyIndex, imageRef]);
 
   return (
     <Box display="flex" flexDir="column">
+      <Box position="absolute" w="100%" h="100%" zIndex={-1}>
+        <Box
+          w="100%"
+          h={imageRef.current && imageRef.current.offsetHeight}
+          bgGradient="linear(to-b, gray.800 25%, gray.800 100%)"
+          opacity={0.6}
+          position="absolute"
+          zIndex={1}
+        />
+        <Image
+          ref={imageRef}
+          alt="northen-lights"
+          src="/northern-lights.jpg"
+          w="100%"
+          h="100%"
+          objectFit="cover"
+          filter="blur(64px)"
+          position="absolute"
+          zIndex={0}
+        />
+      </Box>
       <Flex
         h="100vh"
         p={4}
