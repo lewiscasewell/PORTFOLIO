@@ -1,0 +1,22 @@
+{
+  "short_name": "Lewis Casewell",
+  "name": "Lewis Casewell: Portfolio site",
+  "icons": [
+    {
+      "src": "/vercel.svg",
+      "type": "image/svg+xml",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/vercel.svg",
+      "type": "image/svg+xml",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#11192A",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#11192A",
+  "description": "A portfolio site for Lewis Casewell"
+}

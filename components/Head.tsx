@@ -18,13 +18,9 @@ export const Head: React.FC<Props> = ({ title, description }) => {
       <meta name="description" content={description} />
       <meta property="og:title" content={title} key="title" />
       <meta property="og:description" content={description} />
-      {/* <meta
-        property="og:image"
-        content=""
-      /> */}
       <link rel="manifest" href="/manifest.json" />
       <link rel="icon" href="/favicon.ico" />
-      <meta name="theme-color" content="#1A202C" />
+      <meta name="theme-color" content="#11192A" />
     </NextHead>
   );
 };

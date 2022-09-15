@@ -1,12 +1,6 @@
 import React, { useCallback } from "react";
 
-import {
-  Box,
-  IconButton,
-  Tag,
-  Text,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Box, IconButton, Tag, Text } from "@chakra-ui/react";
 import { IoLogoGithub, IoMdOpen } from "react-icons/io";
 import { Project } from "../interfaces/index";
 
@@ -19,8 +13,6 @@ export const Card: React.FC<Props> = ({ project }) => {
     window.open(url, "_blank");
   }, []);
 
-  const tagTextColor = useColorModeValue("white", "navy.lighter");
-  const textColor = useColorModeValue("navy.light", "slate.lighter");
   return (
     <>
       <Box
@@ -77,7 +69,7 @@ export const Card: React.FC<Props> = ({ project }) => {
         >
           {project.name}
         </Text>
-        <Text color={textColor} fontWeight="light" mt={3} noOfLines={3}>
+        <Text color="gray.400" fontWeight="light" mt={3} noOfLines={3}>
           {project.description}
         </Text>
         <Box>
@@ -87,7 +79,7 @@ export const Card: React.FC<Props> = ({ project }) => {
               mr={2}
               mt={4}
               bg="gray.300"
-              color={tagTextColor}
+              color="gray.800"
               borderRadius="full"
             >
               {topic.node.topic.name}

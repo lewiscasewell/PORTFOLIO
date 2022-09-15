@@ -151,7 +151,7 @@ const Home: React.FC = () => {
         </Flex>
         <Box maxW={headingRef.current?.offsetWidth} h={200}>
           <Text fontSize={[16, 18, 20]} color="gray.400">
-            I am a front-end developer who believes in...
+            I am a front-end developer who practices...
           </Text>
           <Text
             fontSize={[22, 26, 28]}
