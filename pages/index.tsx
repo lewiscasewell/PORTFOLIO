@@ -26,7 +26,6 @@ const CODING_PHILOSOPHY_LIST = [
   "taking a mobile first approach when building applications",
   "using fast user feedback loops to build products users love",
   "using the most simple methods and technologies for the job",
-  "caring about the product they are developing on",
 ];
 
 const Home: React.FC = () => {
@@ -43,9 +42,9 @@ const Home: React.FC = () => {
       }, 5000);
 
       return () => clearTimeout(timer);
-    }
-    if (codingPhilosophyIndex === CODING_PHILOSOPHY_LIST.length)
+    } else {
       setCodingPhilosophyIndex(0);
+    }
   }, [codingPhilosophyIndex]);
 
   return (
@@ -55,16 +54,17 @@ const Home: React.FC = () => {
           w="100%"
           h="100%"
           bgGradient="linear(to-b, gray.800 25%, gray.800 100%)"
-          opacity={0.6}
+          opacity={0.5}
           position="absolute"
           zIndex={1}
         />
         <Image
+          transform={"translate3d(0, 0, 0) translateZ(0)"}
           alt="northen-lights"
           src="/northern-lights.jpg"
           w="100%"
           h="100%"
-          objectFit="cover"
+          objectFit="fill"
           filter="blur(100px)"
           position="absolute"
           zIndex={0}
