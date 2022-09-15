@@ -24,7 +24,7 @@ export const Head: React.FC<Props> = ({ title, description }) => {
       /> */}
       <link rel="manifest" href="/manifest.json" />
       <link rel="icon" href="/favicon.ico" />
-      <meta name="theme-color" content="#000000" />
+      <meta name="theme-color" content="#1A202C" />
     </NextHead>
   );
 };
