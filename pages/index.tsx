@@ -49,6 +49,15 @@ const Home: React.FC = () => {
 
   return (
     <Box display="flex" flexDir="column">
+      <Box mt={2} w="100%" display="flex" justifyContent="center">
+        <Button
+          variant="link"
+          rightIcon={<ExternalLinkIcon />}
+          onClick={() => window.open("CV.pdf", "_blank")}
+        >
+          Open CV
+        </Button>
+      </Box>
       <Box position="absolute" w="100%" h="100%" zIndex={-1}>
         <Box
           w="100%"
@@ -122,15 +131,7 @@ const Home: React.FC = () => {
               />
             </Tooltip>
           </Link>
-          <Tooltip label="Open CV">
-            <IconButton
-              aria-label="CV"
-              rounded="full"
-              icon={<ExternalLinkIcon />}
-              onClick={() => window.open("CV.pdf", "_blank")}
-            />
-          </Tooltip>
-          <Link href="https://books.lewiscasewell.com" target="_blank">
+          {/* <Link href="https://books.lewiscasewell.com" target="_blank">
             <Tooltip label="Book library">
               <IconButton
                 aria-label="books"
@@ -138,7 +139,7 @@ const Home: React.FC = () => {
                 icon={<IoMdBook />}
               />
             </Tooltip>
-          </Link>
+          </Link> */}
           <Link href="https://polls.lewiscasewell.com" target="_blank">
             <Tooltip label="Start a poll">
               <IconButton
