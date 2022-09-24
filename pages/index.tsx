@@ -73,7 +73,7 @@ const Home: React.FC = () => {
           src="/northern-lights.jpg"
           w="100%"
           h="100%"
-          objectFit="fill"
+          objectFit="cover"
           filter="blur(100px)"
           position="absolute"
           zIndex={0}
