@@ -24,6 +24,11 @@ export const Card: React.FC<Props> = ({ project }) => {
         position="relative"
         transition="0.2s ease-in"
         shadow="lg"
+        onClick={() =>
+          openLinkInNewTab(
+            project.homepageUrl ? project.homepageUrl : project.url
+          )
+        }
       >
         <Box justifyContent="space-between" display="flex">
           <Box>
