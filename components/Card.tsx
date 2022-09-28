@@ -30,7 +30,7 @@ export const Card: React.FC<Props> = ({ project }) => {
           )
         }
       >
-        <Box justifyContent="space-between" display="flex">
+        <Box justifyContent="space-between" display="flex" cursor="pointer">
           <Box>
             <IconButton
               variant="link"
